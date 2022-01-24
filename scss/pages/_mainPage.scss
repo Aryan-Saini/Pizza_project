@@ -1,0 +1,65 @@
+// styles the carousel 
+.carousel-item {
+  width: 100%;
+}
+// styles images to have 100% width
+.carousel-inner img {
+  width: 100%;
+  height: 100%;
+}
+// styles the caption of my first image
+.carousel-caption {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+// styles the h1 of my first image
+.carousel-caption h1 {
+  font-size: 500%;
+  text-transform: uppercase;
+  text-shadow: 1px 1px 15px #000000;
+}
+// adds padding on top so its at the same level as the one with logo
+#foot1 {
+  padding-top: 5%;
+}
+// styles the h3 of my first image
+.carousel-caption h3 {
+  font-size: 200%;
+  font-weight: 500;
+  text-shadow: 1px 1px 10px #000000;
+  padding-bottom: 1rem;
+}
+
+.jumbotron {
+  padding: 1rem;
+  border-radius: 0%;
+}
+.padding {
+  padding-bottom: 2rem;
+}
+
+.social a {
+  font-size: 4.5em;
+  padding: 3rem;
+}
+// changes the color of the font to respective colors of the following social media
+.fa-facebook {
+  color: #3b5998;
+}
+.fa-twitter {
+  color: #00aced;
+}
+
+.fa-instagram {
+  color: #517fa8;
+}
+.fa-youtube {
+  color: #bb0000;
+}
+.fa-youtube:hover,
+.fa-instagram:hover,
+.fa-twitter:hover,
+.fa-facebook:hover {
+  color: #d5d5d5;
+}

@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <!--Setting the viewport to make your website look good on all devices-->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--Define keywords for search engines-->
+    <meta name="keywords" content="HTML, CSS, XML, XHTML, JavaScript" />
+    <!-- Define a description of your web page -->
+    <meta name="description" content="Pizza Hotline" />
+    <!-- Define the author of a page -->
+    <meta name="author" content="Aryan Saini" />
+    <!-- title of tab -->
+    <title>Pizza Hotline</title>
+    <!-- script for google lib -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    />
+    <!-- Bootstrap scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <!--Social media -->
+    <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+    <link href="css/stylesheet.css" rel="stylesheet" />
+    <!-- bootstrap style sheet -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <style>
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        height: 100%;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Navigation -->
+    <!-- 
+      class explained 
+        navbar = tells bootstrap that I am creating a nav bar  
+        navbar-expand-md = makes it fill the page on top
+        navbar-light = sets the tone of navbar 
+        bg-light = sets the background color for navbar 
+        sticky-top = sticks on top
+    -->
+    <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
+      <div class="container-fluid">
+        <a class="navbar-brand logo"
+          ><img src="images/MainPage/pizzalogo.png" class="logo" width="30%"
+        /></a>
+        <!-- 
+          button that changes the ul to collapse when screen is smaller than defined px value
+         -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarResponsive"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- this ul will bascically display as a table once screen is smaller that a certain width -->
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item ">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="order.html">Order</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="locations.html">Locations</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact-us.html">Contact us</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!--Locations-->
+    <!-- repeated cards there are three cards in a row each have a button with 
+    onclick event that runs the setMap function that has pramaters of 2 digits 
+    the first is the location, the secon is what iframe it will open
+    -->
+    <div class="container-fluid padding">
+      <div class="row padding">
+        <div class="col-md-4">
+          <div class="card text-white bg-dark">
+            <img src="images/Locations/PizzaHotline.png" class="card-img-top" />
+            <div class="card-body">
+              <h4 class="card-title">Pizza Hotline</h4>
+              <p class="card-text">
+                Address: 2795 Pembina Hwy, Winnipeg, MB R3T 2H5
+              </p>
+              <a
+                onclick="setMap(0,0)"
+                class="btn btn-outline-secondary btn-lg btn-block"
+                >Locate</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card text-white bg-dark">
+            <img src="images/Locations/Kenaston.13.jpg" class="card-img-top" />
+            <div class="card-body">
+              <h4 class="card-title">Pizza Hotline</h4>
+              <p class="card-text">
+                Address: 1765 Kenaston Blvd, Winnipeg, MB R3Y 1V8
+              </p>
+              <a
+                onclick="setMap(1,0)"
+                class="btn btn-outline-secondary btn-lg btn-block"
+                >Locate</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card text-white bg-dark">
+            <img src="images/Locations/linden.jpg" class="card-img-top" />
+            <div class="card-body">
+              <h4 class="card-title">Pizza Hotline</h4>
+              <p class="card-text">
+                Address: 140 Meadowood Dr #4, Winnipeg, MB R2M 5L7
+              </p>
+              <a
+                onclick="setMap(2,0)"
+                class="btn btn-outline-secondary btn-lg btn-block"
+                >Locate</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- repeated iframes that have 100 width -->
+      <div class="row padding">
+        <div style=" width:100%; display: none;" class="iframe">
+          <iframe
+            class="shop-location"
+            width="100%"
+            style="border:none; "
+          ></iframe>
+        </div>
+      </div>
+      <div class="row padding">
+        <div class="col-md-4">
+          <div class="card text-white bg-dark">
+            <img
+              src="images/Locations/PembinaMcGillvary.jpg"
+              class="card-img-top"
+            />
+            <div class="card-body">
+              <h4 class="card-title">Pizza Hotline</h4>
+              <p class="card-text">
+                Address: 1262 Pembina Hwy, Winnipeg, MB R3T 2B1
+              </p>
+              <a
+                onclick="setMap(3,1)"
+                class="btn btn-outline-secondary btn-lg btn-block"
+                >Locate</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card text-white bg-dark">
+            <img src="images/Locations/portage.jpg" class="card-img-top" />
+            <div class="card-body">
+              <h4 class="card-title">Pizza Hotline</h4>
+              <p class="card-text">
+                Address: 1327 Portage Ave, Winnipeg, MB R3G 0V3
+              </p>
+              <a
+                onclick="setMap(4,1)"
+                class="btn btn-outline-secondary btn-lg btn-block"
+                >Locate</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card text-white bg-dark">
+            <img src="images/Locations/roblin.jpg" class="card-img-top" />
+            <div class="card-body">
+              <h4 class="card-title">Pizza Hotline</h4>
+              <p class="card-text">
+                Address: 6640 Roblin Blvd, Winnipeg, MB R3R 2P9
+              </p>
+              <a
+                onclick="setMap(5,1)"
+                class="btn btn-outline-secondary btn-lg btn-block"
+                >Locate</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row padding">
+        <div style=" width:100%; display: none;" class="iframe">
+          <iframe
+            class="shop-location"
+            width="100%"
+            style="border:none; "
+          ></iframe>
+        </div>
+      </div>
+      <div class="row padding">
+        <div class="col-md-4">
+          <div class="card text-white bg-dark">
+            <img src="images/Locations/portage2.jpg" class="card-img-top" />
+            <div class="card-body">
+              <h4 class="card-title">Pizza Hotline</h4>
+              <p class="card-text">
+                Address: 3166 Portage Ave, Winnipeg, MB R3K 0Y5
+              </p>
+              <a
+                onclick="setMap(6,2)"
+                class="btn btn-outline-secondary btn-lg btn-block"
+                >Locate</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card text-white bg-dark">
+            <img src="images/Locations/Annes.jpg" class="card-img-top" />
+            <div class="card-body">
+              <h4 class="card-title">Pizza Hotline</h4>
+              <p class="card-text">
+                Address: 300 St Anne's Rd, Winnipeg, MB R2M 4Z5
+              </p>
+              <a
+                onclick="setMap(7,2)"
+                class="btn btn-outline-secondary btn-lg btn-block"
+                >Locate</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card text-white bg-dark">
+            <img src="images/Locations/McPhillips.jpg" class="card-img-top" />
+            <div class="card-body">
+              <h4 class="card-title">Pizza Hotline</h4>
+              <p class="card-text">
+                Address: 723 McPhillips St, Winnipeg, MB R2X 2H7
+              </p>
+              <a
+                onclick="setMap(8,2)"
+                class="btn btn-outline-secondary btn-lg btn-block"
+                >Locate</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row padding">
+        <div style=" width:100%; display: none;" class="iframe">
+          <iframe
+            class="shop-location"
+            width="100%"
+            style="border:none; "
+          ></iframe>
+        </div>
+      </div>
+      <div class="row padding">
+        <div class="col-md-4">
+          <div class="card text-white bg-dark">
+            <img src="images/Locations/Provencher.jpg" class="card-img-top" />
+            <div class="card-body">
+              <h4 class="card-title">Pizza Hotline Stone Fired</h4>
+              <p class="card-text">
+                Address: 130 Provencher Blvd, Winnipeg, MB R2H 1P3
+              </p>
+              <a
+                onclick="setMap(9,3)"
+                class="btn btn-outline-secondary btn-lg btn-block"
+                >Locate</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card text-white bg-dark">
+            <img src="images/Locations/Concordia.jpg" class="card-img-top" />
+            <div class="card-body">
+              <h4 class="card-title">Pizza Hotline Stone Fired</h4>
+              <p class="card-text">
+                Address: 1100 Concordia Ave #109, Winnipeg, MB R2K 4B8
+              </p>
+              <a
+                onclick="setMap(10,3)"
+                class="btn btn-outline-secondary btn-lg btn-block"
+                >Locate</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card text-white bg-dark">
+            <img src="images/Locations/Keewatin.jpg" class="card-img-top" />
+            <div class="card-body">
+              <h4 class="card-title">Pizza Hotline Stone Fired</h4>
+              <p class="card-text">
+                Address: 14-998 Keewatin St, Winnipeg, MB R2V 2B2
+              </p>
+              <a
+                onclick="setMap(11,3)"
+                class="btn btn-outline-secondary btn-lg btn-block"
+                >Locate</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row padding">
+        <div style=" width:100%; display: none;" class="iframe">
+          <iframe
+            class="shop-location"
+            width="100%"
+            style="border:none; "
+          ></iframe>
+        </div>
+      </div>
+      <div class="row padding">
+        <div class="col-md-4">
+          <div class="card text-white bg-dark">
+            <img src="images/Locations/Regent.jpg" class="card-img-top" />
+            <div class="card-body">
+              <h4 class="card-title">Pizza Hotline Stone Fired</h4>
+              <p class="card-text">
+                Address: 130 Regent Ave E, Winnipeg, MB R2C 0C1
+              </p>
+              <a
+                onclick="setMap(12,4)"
+                class="btn btn-outline-secondary btn-lg btn-block"
+                >Locate</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card text-white bg-dark">
+            <img src="images/Locations/cafe222.jpg" class="card-img-top" />
+            <div class="card-body">
+              <h4 class="card-title">Cafe 22/Pizza Hotline</h4>
+              <p class="card-text">
+                Address: 336 Broadway, Winnipeg, MB R3C 0T2
+              </p>
+              <a
+                onclick="setMap(13,4)"
+                class="btn btn-outline-secondary btn-lg btn-block"
+                >Locate</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card text-white bg-dark">
+            <img src="images/Locations/Henderson.jpg" class="card-img-top" />
+            <div class="card-body">
+              <h4 class="card-title">Pizza Hotline Stone Fired</h4>
+              <p class="card-text">
+                Address: McIvor Mall 13, 1795 Henderson Hwy, Winnipeg, MB R2G
+                1P3
+              </p>
+              <a
+                onclick="setMap(15,4)"
+                class="btn btn-outline-secondary btn-lg btn-block"
+                >Locate</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row padding">
+        <div style=" width:100%; display: none;" class="iframe">
+          <iframe
+            class="shop-location"
+            width="100%"
+            style="border:none; "
+          ></iframe>
+        </div>
+      </div>
+    </div>
+
+    <!--- Footer -->
+    <footer>
+      <div class="container-fluid padding">
+        <div class="row text-center">
+          <div class="col-md-6">
+            <img src="images/MainPage/pizzalogo.png" width="50%" />
+            <hr class="light" />
+            <p>222-2222</p>
+            <a href="mailto:franchiseinfo@pizzahotline.ca"
+              >franchiseinfo@pizzahotline.ca</a
+            >
+            <p>Pizza Hotline Canada Main Office</p>
+            <p>
+              Unit 5 - 823 Corydon Avenue Winnipeg, Manitoba, Canada R3M 0W6
+            </p>
+          </div>
+          <div class="col-md-6" id="foot1">
+            <hr class="light" />
+            <h5>Our Hours</h5>
+            <hr class="light" />
+            <p>Friday: 11am-3am</p>
+            <p>Saturday: 11am-3am</p>
+            <p>Sunday-Thursday: 11am-1am</p>
+          </div>
+          <div class="col-12" id="foot1">
+            <hr class="light-100" />
+            <h5>@copyright by Aryan</h5>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="javascript/locations.js"></script>
+  </body>
+</html>

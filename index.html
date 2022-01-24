@@ -1,0 +1,325 @@
+
+<!--I used vs code sass and indetations 
+  -vs code provides mix-ins for cross-compatibility
+  -vs code indents are 2 spaces instead of 4 spaces
+-->
+<!--Use of bootstrap
+  -I used bootstrap which is grid framework
+  -Bootstrap makes 12 coulmns and i can easily make rows and define the width by saying 
+  -col-md-6 means on a medium screen it will take 6 coulmns
+  All clases
+  -bootstrap has a bunch of clases defined already and when you link script/css file those classes can be accsesd by you 
+  -I explain the classes a lot through out my comments
+  -I learned how to use bootsrap in my freedom friday and it has very common styling  
+-->
+<!-- Common thing sused in website
+  Class 
+    container-fluid - makes a bootstrap container thats fluid
+    col-type-num - defines how much columns and item will take depending on screen type ex col-md-6
+
+ -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <!--Setting the viewport to make your website look good on all devices-->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--Define keywords for search engines-->
+    <meta name="keywords" content="HTML, CSS, XML, XHTML, JavaScript" />
+    <!-- Define a description of your web page -->
+    <meta name="description" content="Pizza Hotline" />
+    <!-- Define the author of a page -->
+    <meta name="author" content="Aryan Saini" />
+    <!-- title of tab -->
+    <title>Pizza Hotline</title>
+    <!-- script for google lib -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    />
+    <!-- Bootstrap scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <!--Social media -->
+    <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+    <link href="css/stylesheet.css" rel="stylesheet" />
+    <!-- bootstrap style sheet -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+  </head>
+
+  <body>
+    <!-- Navigation -->
+    <!-- 
+      class explained 
+        navbar = tells bootstrap that I am creating a nav bar  
+        navbar-expand-md = makes it fill the page on top
+        navbar-light = sets the tone of navbar 
+        bg-light = sets the background color for navbar 
+        sticky-top = sticks on top
+    -->
+    <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
+      <div class="container-fluid">
+        <a class="navbar-brand logo"
+          ><img src="images/MainPage/pizzalogo.png" class="logo" width="30%"
+        /></a>
+        <!-- 
+          button that changes the ul to collapse when screen is smaller than defined px value
+         -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarResponsive"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- this ul will bascically display as a table once screen is smaller that a certain width -->
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="order.html">Order</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="locations.html">Locations</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact-us.html">Contact us</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <main>
+      <!--- Image Slider -->
+      <!-- image slider or slide show 
+        its called carousel because of the little indicators on the bottom
+        some common clases 
+          - btn - tells bootstrap its a button 
+          -carousel-item - makes a caursel item
+          -carousel-control-prev && carousel-control-next tells bootstra to make a button to go next or back
+        data-target tells the bootstrap to make indicators for the dedined id
+        data-slide-to="0" tells bootstrap what img to go to once clicked and what image is being repersented by the indicator
+      -->
+      <div id="slides" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#slides" data-slide-to="0" class="active"></li>
+          <li data-target="#slides" data-slide-to="1"></li>
+          <li data-target="#slides" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="images/MainPage/Carousel1.png" />
+            <div class="carousel-caption">
+              <h1 class="display-2"><b>Pizza Hotline</b></h1>
+              <h3>Saucy Little Number</h3>
+              <a
+                type="button"
+                href="contact-us.html"
+                class="btn btn-dark btn-lg"
+              >
+                Contact Us
+            </a>
+              <a
+                type="button"
+                href="order.html"
+                class="btn btn-primary btn-lg"
+              >
+                Order
+          </a>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="images/MainPage/carousel2.jpg" />
+          </div>
+          <div class="carousel-item">
+            <img src="images/MainPage/carousel3.jpg" />
+          </div>
+        </div>
+        <a
+          class="carousel-control-prev"
+          href="#slides"
+          role="button"
+          data-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a
+          class="carousel-control-next"
+          href="#slides"
+          role="button"
+          data-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+
+      <!--- Jumbotron -->
+      <!-- nice way to show some text with a gray backgorund 
+      its very responsive and has many sizes justified
+     -->
+      <div class="container-fluid">
+        <div class="row jumbotron">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+            <p class="lead">
+              We take pride in the pizza we sell and offer. Pizza hotline has
+              the best custom pizza for families, parties, and freinds. We have
+              the fastest pizza dilever and are always prepared to give our
+              customers the best pizza for the best price. We take pride in our
+              pizza and customers.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!--- Cards -->
+      <!-- A card is a flexible and extensible content container. 
+        It includes options for headers and footers, a wide variety of content, 
+        contextual background colors, and powerful display options.  -->
+      <div class="container-fluid padding">
+        <div class="row padding">
+          <div class="col-md-4">
+            <div class="card">
+              <img src="images/MainPage/hamandpine.jpg" class="card-img-top" />
+              <div class="card-body">
+                <h4 class="card-title">Hawaiian Love</h4>
+                <p class="card-text">
+                  This ham and pineapple pizza makes you feel Hawaiian and smell
+                  Hawaiian. The juicy freshness from the pinapple and the
+                  perfect ham.
+                </p>
+                <a href="order.html" class="btn btn-outline-secondary btn-lg btn-block"
+                  >Order</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card">
+              <img src="images/MainPage/peporini.jpg" class="card-img-top" />
+              <div class="card-body">
+                <h4 class="card-title">Classic Pepperoni Pizza</h4>
+                <p class="card-text">
+                  Pizza made with professional dough layered with the best pizza
+                  sauce in manitoba, enriched with chessy goodness and fresh
+                  Pepperoni.
+                </p>
+                <a href="order.html" class="btn btn-outline-secondary btn-lg btn-block"
+                  >Order</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card">
+              <img src="images/MainPage/chesse.jpg" class="card-img-top" />
+              <div class="card-body">
+                <h4 class="card-title">Chessy Delight</h4>
+                <p class="card-text">
+                  The perfect chessy pizza for anyday, ready to eat 24/7 and its
+                  loved 24/7. Its good, appetizing and always available.
+                </p>
+                <a href="order.html" class="btn btn-outline-secondary btn-lg btn-block"
+                  >Order</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--- Two Column Section -->
+      <!-- Two text coulmns that contain text -->
+      <div class="container-fluid padding">
+        <div class="row padding">
+          <div class="col-lg-6">
+            <h2>Our Philsophy .</h2>
+            <p>
+              Founded in 1988, Pizza Hotline is the recognized canadian leader
+              in pizza delivery operating a network of company-owned and
+              franchise-owned stores in canada. Pizza hotline is a company of
+              exceptional people on a mission to be the best pizza delivery
+              company in canada.
+            </p>
+            <p>
+              Like many great success stories, the tale of Pizza Hotline and
+              Café 22 stems from humble beginnings. What started with one small
+              pizza restaurant in Winnipeg back in 1988 has grown steadily into
+              a network of market-dominating franchise operations, with ten
+              locations in Winnipeg, one each in Steinbach, Winkler, Brandon,
+              and another in Stonewall. By adapting to change while staying true
+              to our mission, we’ve developed a system for success based on
+              nearly 20 years of industry experience. We’ve proven we’re no
+              flash in the pan. And we’re growing again. We’ve developed an
+              aggressive expansion plan to increase our presence across North
+              America and now we need just the right people to join our family
+              of franchisees. We offer two franchise package options – Pizza
+              Hotline take-out and delivery locations, and Café 22 dine-in
+              restaurants, which feature an expanded Pizza Hotline menu served
+              up in a funky yet unpretentious atmosphere. Is there a Pizza
+              Hotline or Café 22 near you? If not… what are you waiting for?
+            </p>
+            <br />
+          </div>
+          <div class="col-lg-6">
+            <img src="images/MainPage/Pizza.PNG" class="img-fluid" />
+          </div>
+        </div>
+        <hr class="my-4" />
+      </div>
+      <!--- Connect -->
+      <!-- the font is from fontawesome its linked on top and it provides cool fonts that 
+        look like the icon for the things mentioned -->
+      <div class="container-fluid padding">
+        <div class="row text-center padding">
+          <div class="col-12">
+            <h2>Connect</h2>
+          </div>
+          <div class="col-12 social padding">
+            <a href="https://www.facebook.com/pizzahotline22/"><i class="fab fa-facebook"></i></a>
+            <a href="https://twitter.com/PizzaHotline22?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com/pizzahotline22/?hl=en""><i class="fab fa-instagram"></i></a>
+            <a href="https://www.youtube.com/channel/UC8PzYBSaqk9K0bNbTk8lknQ"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+    </main>
+    <!--- Footer -->
+    <!-- footer has very common things and is mostly like all other things
+    but in the footer i add hr which is the line that goes across -->
+    <footer>
+      <div class="container-fluid padding">
+        <div class="row text-center">
+          <div class="col-md-6">
+            <img src="images/MainPage/pizzalogo.png" width="50%" />
+            <hr class="light" />
+            <p>222-2222</p>
+            <a href="mailto:franchiseinfo@pizzahotline.ca"
+              >franchiseinfo@pizzahotline.ca</a
+            >
+            <p>Pizza Hotline Canada Main Office</p>
+            <p>
+              Unit 5 - 823 Corydon Avenue Winnipeg, Manitoba, Canada R3M 0W6
+            </p>
+          </div>
+          <div class="col-md-6" id="foot1">
+            <hr class="light" />
+            <h5>Our Hours</h5>
+            <hr class="light" />
+            <p>Friday: 11am-3am</p>
+            <p>Saturday: 11am-3am</p>
+            <p>Sunday-Thursday: 11am-1am</p>
+          </div>
+          <div class="col-12" id="foot1">
+            <hr class="light-100" />
+            <h5>@copyright by Aryan</h5>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

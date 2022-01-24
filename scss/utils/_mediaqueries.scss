@@ -1,0 +1,70 @@
+/*---Media Queries --*/
+@media (max-width: 992px) {
+  // change font size 
+  .social a {
+    font-size: 4em;
+    padding: 2rem;
+  }
+}
+@media (max-width: 768px) {
+  // disable logo in nav
+  .logo {
+    display: none;
+  }
+  body {
+    font-size: 15px;
+  }
+  // moves it up
+  .carousel-caption {
+    top: 45%;
+  }
+  .carousel-caption h1 {
+    font-size: 350%;
+  }
+
+  .carousel-caption h3 {
+    font-size: 140%;
+    font-weight: 400;
+    padding-bottom: 0.2rem;
+  }
+  .carousel-caption .btn {
+    font-size: 95%;
+    padding: 8px 14px;
+  }
+  .display-4 {
+    font-size: 200%;
+  }
+  .social a {
+    font-size: 2em;
+    padding: 1rem;
+  }
+}
+@media (max-width: 576px) {
+  body {
+    font-size: 10px;
+  }
+  .carousel-caption {
+    top: 40%;
+  }
+  .carousel-caption h1 {
+    font-size: 250%;
+  }
+
+  .carousel-caption h3 {
+    font-size: 110%;
+  }
+  .carousel-caption .btn {
+    font-size: 90%;
+    padding: 4px 8px;
+  }
+  .carousel li {
+    display: none;
+  }
+  .display-4 {
+    font-size: 160%;
+  }
+  .social a {
+    font-size: 1.5em;
+    padding: 0.5rem;
+  }
+}
